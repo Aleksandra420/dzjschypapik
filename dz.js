@@ -323,49 +323,68 @@ console.log(multiplyRandomNumbers());
 
 // практическая №4
 
-// 1  - 
-let student1 = {
-    name: "Иван",
-    age: 20,
-    major: "Информатика",
-    greet: function() {
-        console.log("Привет, меня зовут " + this.name + " и я учусь на специальности " + this.major + ".");
-    }
-};
+let Student2=new Object(); 
+Student2.vozr=19; 
+ 
+ 
+ 
+let Student={ 
+    age:24, 
+    name:"Олег", 
+    napravlenie:"ИФСТ", 
+    sayAge(){ 
+        alert(this.age); 
+    }, 
+    sayName(){ 
+        alert(this.name); 
+    } 
+}; 
+Student.sayAge(); 
+Student.sayName(); 
+ 
+function constrStubent(age,name,naprav,kurs){ 
+    this.age=age; 
+    this.name= name; 
+    this.naprav=naprav; 
+    this.kurs=kurs; 
+    this.Agele=function() 
+    { 
+        return alert(age); 
+    }, 
+    this.Namele=function() 
+    { 
+        return alert(name); 
+    }, 
+    this.Kursle=function() 
+    { 
+        return alert(kurs); 
+    }, 
+    this.Napravle=function() 
+    { 
+        return alert(naprav); 
+    } 
+} 
+ 
+ 
+let veronica= new constrStubent(19,'Вероника','Историк',1); 
+veronica.Agele(); 
+veronica.Namele(); 
+veronica.Napravle(); 
 
-student1.greet();
+// This в JavaScript — это ссылка на какой-то объект. 
+// Объект, на который ссылается this, может меняться в зависимости от контекста вызова. Чаще всего this определяется тем, кто вызывает функцию. 
+// Вот некоторые ситуации, в которых может использоваться this: 
+// Простой вызов. В общем случае this указывает на глобальный объект. 
+// Внутри объекта. Когда this используется внутри объекта, то ссылается на сам объект. 
+// В режиме конструктора. Когда this используется в режиме конструктора, оно автоматически указывает на объект в текущем конструкторе, откуда его вызывают. 
+// Работа с методами call() и apply(). This хранит контекст вызова, который не меняется во время передачи в другую функцию. 
+// В стрелочных функциях. This часто используют в стрелочных функциях, чтобы не перегружать код дополнительными методами.
 
+// 4) Определение ключевого слова this:
+// - Ключевое слово this в JavaScript ссылается на текущий объект, в контексте которого оно вызывается.
+// - this позволяет обращаться к свойствам и методам объекта без необходимости указывать его имя явно.
+// - this целесообразно использовать в методах объекта для доступа к его собственным свойствам и методам.
 
-// 2
-function Student(name, age, major) {
-    this.name = name;
-    this.age = age;
-    this.major = major;
-    
-    this.greet = function() {
-        console.log("Привет, меня зовут " + this.name + " и я учусь на специальности " + this.major + ".");
-    };
-}
-
-let student2 = new Student("Мария", 22, "Психология");
-student2.greet();
-
-function Student(name, age, major) {
-    this.name = name;
-    this.age = age;
-    this.major = major;
-    this.greet = function() {
-        console.log("Привет, меня зовут " + this.name + " и я учусь на специальности " + this.major + ", мне " + this.age + " лет.");
-    };
-}
-document.getElementById('submitButton').addEventListener('click', function() {
-    const name = document.getElementById('nameInput').value;
-    const age = document.getElementById('ageInput').value;
-    const major = document.getElementById('majorInput').value;
-
-    let student = new Student(name, age, major);
-    student.greet();
-});
 
 
   
